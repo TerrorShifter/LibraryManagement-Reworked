@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application
+  Name="LightSwitchApplication.LibraryManagement.DesktopClient" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <Application.Attributes>
+    <Partial />
+  </Application.Attributes>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:Book" />
+      <DefaultScreen
+        Value="BookDetail">
+        <DefaultScreen.Attributes>
+          <ScreenParameterMapping
+            KeyProperty="Book/Properties[Id]"
+            ScreenParameter="BookDetail/Properties[BookId]" />
+        </DefaultScreen.Attributes>
+      </DefaultScreen>
+    </EntityType.Attributes>
+  </EntityType>
+</Application>

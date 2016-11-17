@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Documents>
+    <Document FullPath="E:\Jed\Documents\Visual Studio\Projects\LibraryManagement\LibraryManagement\LibraryManagement.DesktopClient\Properties\ApplicationData\Books.lsml" Checksum="1C2432656549C01DC80EECDABE12396D292137761B15814909A717C1193811F5" />
+    <Document FullPath="E:\Jed\Documents\Visual Studio\Projects\LibraryManagement\LibraryManagement\LibraryManagement.DesktopClient\Properties\Client.lsml" Checksum="B5991480EFF673B6AA32A8F582E5B10DFA723E5423E48F7C9718CC4D9D2FD1AC" />
+    <Document FullPath="E:\Jed\Documents\Visual Studio\Projects\LibraryManagement\LibraryManagement\LibraryManagement.DesktopClient\Properties\Proxies.lsml" Checksum="C0F1F79FE5729BE1118891B3D83B76C75A446B159615C3997E7E4C27F02756BC" />
+    <Document FullPath="E:\Jed\Documents\Visual Studio\Projects\LibraryManagement\LibraryManagement\LibraryManagement.DesktopClient\Screens\BookDetail.lsml" Checksum="BD7C30CEFFD02149D90CB771C978CC93732CE28FF9CA573F762402C36E368C3E" />
+    <Document FullPath="E:\Jed\Documents\Visual Studio\Projects\LibraryManagement\LibraryManagement\LibraryManagement.DesktopClient\Screens\SearchBooks.lsml" Checksum="2560C7EBE03A2A02F97E667B7A90835B7C987A13873A31AA5E400B83F9AE2729" />
+  </Documents>
+</ModelDocumentManifest>

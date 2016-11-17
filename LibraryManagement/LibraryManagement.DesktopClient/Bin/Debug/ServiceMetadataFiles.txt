@@ -1,0 +1,7 @@
+LibraryManagement.Server.Properties.Service.lsml
+LibraryManagement.Server.Properties.DataSources.ApplicationData.lsml
+LibraryManagement.Server.DataSources.ApplicationData.Patrons.lsml
+LibraryManagement.Server.DataSources.ApplicationData.Books.lsml
+LibraryManagement.Server.DataSources.ApplicationData.Fees.lsml
+LibraryManagement.Server.DataSources.ApplicationData.BookSearchQuery.lsml
+LibraryManagement.Server.DataSources.ApplicationData.CheckOuts.lsml

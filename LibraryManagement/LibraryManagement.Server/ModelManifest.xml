@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Documents>
+    <Document FullPath="E:\Jed\Documents\Visual Studio\Projects\LibraryManagement\LibraryManagement\LibraryManagement.Server\Properties\Service.lsml" Checksum="679C78F29C5AF23E9956A773B0E46DF90F7B86CADA0B79571E5896A1C79F5B70" />
+    <Document FullPath="E:\Jed\Documents\Visual Studio\Projects\LibraryManagement\LibraryManagement\LibraryManagement.Server\Properties\DataSources\ApplicationData.lsml" Checksum="E6FEEAC3B4A850AAC5F0029259A0B9F8C1BD45F2950D17BD8D6664B9422E6AD6" />
+    <Document FullPath="E:\Jed\Documents\Visual Studio\Projects\LibraryManagement\LibraryManagement\LibraryManagement.Server\DataSources\ApplicationData\Patrons.lsml" Checksum="2BC47CFA14192304BCC97FA54D39E02BE05502D267BAD17DD61D30489F26C15A" />
+    <Document FullPath="E:\Jed\Documents\Visual Studio\Projects\LibraryManagement\LibraryManagement\LibraryManagement.Server\DataSources\ApplicationData\Books.lsml" Checksum="5AF3DBEF0BBCCC83591DA430BDA71F7EF2797E75A3717AE96266A91C0C9B0117" />
+    <Document FullPath="E:\Jed\Documents\Visual Studio\Projects\LibraryManagement\LibraryManagement\LibraryManagement.Server\DataSources\ApplicationData\Fees.lsml" Checksum="8250043846C3799155605184BDFF35B9D777C42ED3F6D7AB45BE40852C06A125" />
+    <Document FullPath="E:\Jed\Documents\Visual Studio\Projects\LibraryManagement\LibraryManagement\LibraryManagement.Server\DataSources\ApplicationData\BookSearchQuery.lsml" Checksum="27B3783ADAB7F6F58D4E3A816BC4D85EA42540B0EAC125473B7F094C28B7A5C7" />
+    <Document FullPath="E:\Jed\Documents\Visual Studio\Projects\LibraryManagement\LibraryManagement\LibraryManagement.Server\DataSources\ApplicationData\CheckOuts.lsml" Checksum="074AAE8A093C8135C0479A772D8F98200CA1BBE5F748D2CEB14BC0EB64188EB1" />
+  </Documents>
+</ModelDocumentManifest>

@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" Namespace="LightSwitchApplication" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityType Name="Patron">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LastName" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="FirstName" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Email" Type="Edm.String" MaxLength="255" />
+    <Property Name="Phone" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Patron_Book" Type="Edm.Int32" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="Book" Relationship="LightSwitchApplication.Patron_Book" ToRole="Book" FromRole="Patron" />
+    <NavigationProperty Name="Fees" Relationship="LightSwitchApplication.Patron_Fee" ToRole="Fee" FromRole="Patron" />
+    <NavigationProperty Name="CheckOuts" Relationship="LightSwitchApplication.CheckOut_Patron" ToRole="CheckOut" FromRole="Patron" />
+  </EntityType>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cover" Type="Edm.Binary" MaxLength="Max" />
+    <Property Name="Title" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Author" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Series" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="BookNumber" Type="Edm.Int32" Nullable="false" />
+    <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="ISBN" Type="Edm.Int32" Nullable="false" />
+    <Property Name="Publisher" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="PublishDate" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="Pages" Type="Edm.Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Edm.Int32" Nullable="false" />
+    <Property Name="CheckOut_Book" Type="Edm.Int32" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="Patrons" Relationship="LightSwitchApplication.Patron_Book" ToRole="Patron" FromRole="Book" />
+    <NavigationProperty Name="CheckOut" Relationship="LightSwitchApplication.CheckOut_Book" ToRole="CheckOut" FromRole="Book" />
+  </EntityType>
+  <EntityType Name="Fee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Reason" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Amount" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Patron_Fee" Type="Edm.Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="Patron" Relationship="LightSwitchApplication.Patron_Fee" ToRole="Patron" FromRole="Fee" />
+  </EntityType>
+  <EntityType Name="CheckOut">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CheckOut_Patron" Type="Edm.Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="Books" Relationship="LightSwitchApplication.CheckOut_Book" ToRole="Book" FromRole="CheckOut" />
+    <NavigationProperty Name="Patron" Relationship="LightSwitchApplication.CheckOut_Patron" ToRole="Patron" FromRole="CheckOut" />
+  </EntityType>
+  <Association Name="Patron_Book">
+    <End Role="Book" Type="LightSwitchApplication.Book" Multiplicity="0..1" />
+    <End Role="Patron" Type="LightSwitchApplication.Patron" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Patron">
+        <PropertyRef Name="Patron_Book" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Patron_Fee">
+    <End Role="Patron" Type="LightSwitchApplication.Patron" Multiplicity="1" />
+    <End Role="Fee" Type="LightSwitchApplication.Fee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patron">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Fee">
+        <PropertyRef Name="Patron_Fee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CheckOut_Book">
+    <End Role="CheckOut" Type="LightSwitchApplication.CheckOut" Multiplicity="0..1" />
+    <End Role="Book" Type="LightSwitchApplication.Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckOut">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="CheckOut_Book" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CheckOut_Patron">
+    <End Role="Patron" Type="LightSwitchApplication.Patron" Multiplicity="1" />
+    <End Role="CheckOut" Type="LightSwitchApplication.CheckOut" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patron">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CheckOut">
+        <PropertyRef Name="CheckOut_Patron" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ApplicationData" m:IsDefaultEntityContainer="true">
+    <EntitySet Name="Patrons" EntityType="LightSwitchApplication.Patron" />
+    <EntitySet Name="Books" EntityType="LightSwitchApplication.Book" />
+    <EntitySet Name="Fees" EntityType="LightSwitchApplication.Fee" />
+    <EntitySet Name="CheckOuts" EntityType="LightSwitchApplication.CheckOut" />
+    <AssociationSet Name="Patron_Book" Association="LightSwitchApplication.Patron_Book">
+      <End Role="Book" EntitySet="Books" />
+      <End Role="Patron" EntitySet="Patrons" />
+    </AssociationSet>
+    <AssociationSet Name="Patron_Fee" Association="LightSwitchApplication.Patron_Fee">
+      <End Role="Patron" EntitySet="Patrons" />
+      <End Role="Fee" EntitySet="Fees" />
+    </AssociationSet>
+    <AssociationSet Name="CheckOut_Book" Association="LightSwitchApplication.CheckOut_Book">
+      <End Role="CheckOut" EntitySet="CheckOuts" />
+      <End Role="Book" EntitySet="Books" />
+    </AssociationSet>
+    <AssociationSet Name="CheckOut_Patron" Association="LightSwitchApplication.CheckOut_Patron">
+      <End Role="Patron" EntitySet="Patrons" />
+      <End Role="CheckOut" EntitySet="CheckOuts" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
